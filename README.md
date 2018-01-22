@@ -5,7 +5,7 @@ bedtools
 
 # About
 
-Dockerfile for [bedtools](https://github.com/arq5x/bedtools).
+Dockerfile for [bedtools2](https://github.com/arq5x/bedtools2).
 
 # Usage
 
