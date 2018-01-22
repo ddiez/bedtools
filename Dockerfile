@@ -2,7 +2,7 @@ FROM debian:testing
 
 LABEL maintainer Diego Diez <diego10ruiz@gmail.com>
 
-ENV VERSION=2.26.0
+ENV VERSION=2.27.1
 
 RUN apt-get update -y && \
     apt-get install -y \
@@ -13,14 +13,11 @@ RUN apt-get update -y && \
       zlib1g \
       zlib1g-dev \
       && \
-
     curl -L https://github.com/arq5x/bedtools2/releases/download/v$VERSION/bedtools-$VERSION.tar.gz > /tmp/bedtools-$VERSION.tar.gz && \
     cd /tmp && \
     tar xfzv bedtools-$VERSION.tar.gz && \
     cd bedtools2 && \
     make prefix=/opt install && \
-
-    # clean up.
     rm /tmp/bedtools-$VERSION.tar.gz && \
     rm -rf /tmp/bedtools2 && \
     apt-get clean -y && \
