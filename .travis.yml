@@ -11,4 +11,7 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
       docker push ddiez/bedtools;
+      VERSION=`docker run ddiez/bedtools printenv VERSION`;
+      docker tag ddiez/bedtools ddiez/bedtools:$VERSION;
+      docker push ddiez/bedtools:$VERSION;
     fi
